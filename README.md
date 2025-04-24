@@ -3,45 +3,22 @@ Password Strength Checker
 
 A full-stack Password Strength Checker application that evaluates password strength using entropy, dictionary checks, and data breach lookups, and provides actionable feedback to the user.
 
-⸻
-
-Table of Contents
-	/ •	Project Overview
-	•	Tech Stack
-	•	Features
-	•	Core Features (MVP)
-	•	Advanced Features
-	•	Common Password List
-	•	Concepts Explained
-	•	Folder Structure
-	•	Getting Started
-	•	Prerequisites
-	•	Running Locally
-	•	Deployment
-	•	Frontend (GitHub Pages)
-	•	Backend (Render)
-	•	Branch Strategy
-	•	Contributing
-	•	License
-
-⸻
-
 Project Overview
 
 This project consists of:
-	•	Frontend (in docs/):
-	•	Real-time strength evaluation (length, mixed case, digits, symbols)
-	•	Shannon entropy calculation
-	•	Dictionary check against the top 10 000 common passwords
-	•	Dynamic ✔/✖ requirements checklist
-	•	SHA-256 hash visualizer
-	•	Dark mode toggle
-	•	Live HaveIBeenPwned breach checks (k-anonymity)
-	•	Backend (in backend/):
-	•	Flask API exposing /api/breach-check
-	•	Accepts SHA-1 hash prefix/suffix, queries HIBP, returns breach count
-	•	CORS-enabled for use from GitHub Pages
+**Frontend**
+	* Real-time strength evaluation (length, mixed case, digits, symbols)
+	* Shannon entropy calculation
+	* Dictionary check against the top 10,000 common passwords
+	* Dynamic ✔/✖ requirements checklist
+	* SHA-256 hash visualizer
+	* Dark mode toggle
+	* Live HaveIBeenPwned breach checks (k-anonymity)
 
+**Backend**
+	* Flask API exposing /api/breach-check
+	* Accepts SHA-1 hash prefix/suffix, queries HIBP, returns breach count
+	* CORS-enabled for use from GitHub Pages
 ⸻
 
 Tech Stack
