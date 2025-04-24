@@ -104,7 +104,7 @@ Folder Structure
 	├── backend/                # Flask API
 	│   ├── app.py
 	│   └── requirements.txt
-	├── docs/                   # Static frontend (GitHub Pages)
+	├── frontend/                   # Static frontend (GitHub Pages)
 	│   ├── index.html
 	│   ├── style.css
 	│   ├── script.js
@@ -141,8 +141,8 @@ Deployment
 
 Frontend (GitHub Pages)
 
-	1.	Push the docs/ folder to the frontend branch.
-	2.	On GitHub: Settings → Pages → Source = frontend branch, /docs folder.
+	1.	Push the files to the frontend branch.
+	2.	On GitHub: Settings → Pages → Source = frontend branch, /root folder.
 	3.	Site URL: https://kushardogra.github.io/Password-Strength-Checker/
 
 
@@ -151,7 +151,7 @@ Backend (Render)
 	1.	Connect backend branch in Render as a Web Service.
 	2.	Set Root Directory to backend/.
 	3.	Build: pip install -r requirements.txt
-	4.	Start: gunicorn app:app
+	4.	Start: python app.py
 	5.	Update API_URL in docs/script.js to: https://password-strength-checker-mvlg.onrender.com
 
 ⸻
