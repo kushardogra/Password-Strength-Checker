@@ -61,6 +61,8 @@ Common Password List
 
 We bundle the top 10 000 most common passwords (sourced from the SecLists GitHub repo) in docs/common_passwords.txt. If your password appears in this list, the UI warns you immediately—protecting against the weakest, most guessable choices.
 
+	https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-10000.txt
+
 ⸻
 
 *Concepts Explained*
