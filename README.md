@@ -18,12 +18,15 @@ This project consists of:
 	* Live HaveIBeenPwned breach checks (k-anonymity)
 
 **Backend**
+
+
 	* Flask API exposing /api/breach-check
 	* Accepts SHA-1 hash prefix/suffix, queries HIBP, returns breach count
 	* CORS-enabled for use from GitHub Pages
 ⸻
 
 Tech Stack
+
 	•	Frontend
 	•	HTML, CSS, JavaScript (Vanilla)
 	•	Web Crypto API for hashing & entropy
@@ -37,6 +40,7 @@ Tech Stack
 Features
 
 Core Features (MVP)
+
 	1.	Password Input Box
 	2.	Strength Meter (labels: Too Short → Very Strong)
 	3.	Feedback Messages (“Too Short”, common-password warning)
@@ -45,6 +49,7 @@ Core Features (MVP)
 	6.	Live UI Updates on every keystroke
 
 Advanced Features
+
 	•	🔄 Real-time breach check via HaveIBeenPwned (k-anonymity)
 	•	🔐 SHA-256 Hash Visualizer
 	•	📊 Dynamic Strength Breakdown checklist with ✔/✖ per rule
@@ -58,15 +63,14 @@ We bundle the top 10 000 most common passwords (sourced from the SecLists GitHub
 
 ⸻
 
-Concepts Explained
+*Concepts Explained*
 
 Shannon Entropy
 
 Entropy quantifies unpredictability. We compute Shannon entropy per character:
 
-H = -∑ p(c) · log₂ p(c)
-
-where p(c) is each character’s frequency in the password. Higher bits/char means a more complex password.
+	H = -∑ p(c) · log₂ p(c)
+	where p(c) is each character’s frequency in the password. Higher bits/char means a more complex password.
 
 SHA-256 Hashing
 
@@ -93,94 +97,67 @@ Each rule shows ✔ in green when met or ✖ in red otherwise. Only when all pas
 ⸻
 
 Folder Structure
-
-password-strength-checker/
-├── backend/                # Flask API
-│   ├── app.py
-│   └── requirements.txt
-├── docs/                   # Static frontend (GitHub Pages)
-│   ├── index.html
-│   ├── style.css
-│   ├── script.js
-│   └── common_passwords.txt
-└── README.md
-
-
+	
+	password-strength-checker/
+	├── backend/                # Flask API
+	│   ├── app.py
+	│   └── requirements.txt
+	├── docs/                   # Static frontend (GitHub Pages)
+	│   ├── index.html
+	│   ├── style.css
+	│   ├── script.js
+	│   └── common_passwords.txt
+	└── README.md
 
 ⸻
 
 Getting Started
 
 Prerequisites
+
 	•	Python 3.x
 	•	(Optional) python3 -m http.server for serving static files
 
 Running Locally
-	1.	Backend
+1.	Backend
+   
+		cd backend
+		python3 -m venv venv
+		source venv/bin/activate
+		pip install -r requirements.txt
+		gunicorn app:app
 
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-gunicorn app:app
+2.	Frontend
 
-
-	2.	Frontend
-
-cd docs
-python3 -m http.server 8000
-# Open http://localhost:8000
-
-
+		cd docs
+		python3 -m http.server 8000
+		# Open http://localhost:8000
 
 ⸻
 
 Deployment
 
 Frontend (GitHub Pages)
+
 	1.	Push the docs/ folder to the frontend branch.
 	2.	On GitHub: Settings → Pages → Source = frontend branch, /docs folder.
-	3.	Site URL:
-
-https://<your-username>.github.io/<repo-name>/
-
+	3.	Site URL: https://kushardogra.github.io/Password-Strength-Checker/
 
 
 Backend (Render)
+
 	1.	Connect backend branch in Render as a Web Service.
 	2.	Set Root Directory to backend/.
 	3.	Build: pip install -r requirements.txt
 	4.	Start: gunicorn app:app
-	5.	Update API_URL in docs/script.js to:
-
-https://<your-render-service>.onrender.com/api/breach-check
-
-
+	5.	Update API_URL in docs/script.js to: https://password-strength-checker-mvlg.onrender.com
 
 ⸻
 
 Branch Strategy
+
 	•	frontend: UI code served via GitHub Pages
 	•	backend: Flask API served via Render
 
 ⸻
 
-Contributing
-	1.	Fork the repo.
-	2.	Create a branch:
-
-git checkout -b feature/YourFeature
-
-
-	3.	Commit & push:
-
-git push origin feature/YourFeature
-
-
-	4.	Open a Pull Request.
-
-⸻
-
-License
-
-This project is licensed under the MIT License.
