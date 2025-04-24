@@ -6,7 +6,7 @@ A full-stack Password Strength Checker application that evaluates password stren
 ⸻
 
 Table of Contents
-	•	Project Overview
+	/ •	Project Overview
 	•	Tech Stack
 	•	Features
 	•	Core Features (MVP)
