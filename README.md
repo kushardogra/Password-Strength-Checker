@@ -6,7 +6,9 @@ A full-stack Password Strength Checker application that evaluates password stren
 Project Overview
 
 This project consists of:
+
 **Frontend**
+
 	* Real-time strength evaluation (length, mixed case, digits, symbols)
 	* Shannon entropy calculation
 	* Dictionary check against the top 10,000 common passwords
