@@ -67,32 +67,32 @@ We bundle the top 10 000 most common passwords (sourced from the SecLists GitHub
 
 *Concepts Explained*
 
-Shannon Entropy
+1. Shannon Entropy
 
 Entropy quantifies unpredictability. We compute Shannon entropy per character:
 
 	H = -∑ p(c) · log₂ p(c)
-	where p(c) is each character’s frequency in the password. Higher bits/char means a more complex password.
+ where p(c) is each character’s frequency in the password. Higher bits/char means a more complex password.
 
-SHA-256 Hashing
+2. SHA-256 Hashing
 
 Our “Show SHA-256 Hash” feature uses the browser’s Web Crypto API to demonstrate one-way hashing. It converts your password into a fixed-length 256-bit string that cannot be reversed.
 
-HaveIBeenPwned (k-Anonymity)
-
+3. HaveIBeenPwned (k-Anonymity)
 To check breaches without revealing your password:
+
 	1.	SHA-1 hash the password.
 	2.	Send only the first 5 hex characters (prefix) to HIBP’s /range/ endpoint.
 	3.	Receive hundreds of suffixes and counts.
 	4.	Compare locally to see if your full hash appears—and how many times.
 
-Dynamic Requirements Checklist
-
+4. Dynamic Requirements Checklist
 Rather than a black-box meter, we show a live list:
-	•	At least 8 characters
-	•	Mixed lower + upper case
-	•	At least one digit
-	•	At least one symbol
+
+		•	At least 8 characters
+		•	Mixed lower + upper case
+		•	At least one digit
+		•	At least one symbol
 
 Each rule shows ✔ in green when met or ✖ in red otherwise. Only when all pass does the label read “Very Strong”.
 
