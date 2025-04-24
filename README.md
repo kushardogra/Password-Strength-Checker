@@ -1,4 +1,5 @@
 # Password-Strength-Checker
+![App in action](screenshot.png)
 Password Strength Checker
 
 A full-stack Password Strength Checker application that evaluates password strength using entropy, dictionary checks, and data breach lookups, and provides actionable feedback to the user.
