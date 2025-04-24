@@ -1,0 +1,233 @@
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Container card */
+.container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  width: 360px;
+  text-align: center;
+  position: relative;
+}
+
+/* Dark mode */
+body.dark {
+  background: #1f2023;
+  color: #e1e2e6;
+}
+body.dark .container {
+  background: #2a2b2e;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+/* Dark-mode toggle (updated) */
+.dark-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.dark-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.dark-toggle .toggle-slider {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 10px;
+  margin-right: 0.5em;
+  transition: background 0.3s;
+}
+.dark-toggle .toggle-slider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.dark-toggle input:checked + .toggle-slider {
+  background: #4a90e2;
+}
+.dark-toggle input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* Header */
+.container h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Input */
+#passwordInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+#passwordInput:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+/* Meter bar styling */
+meter {
+  width: 100%;
+  height: 12px;
+  margin: 1rem 0;
+  appearance: none;
+  border: none;
+  border-radius: 8px;
+  background: #e0e0e0;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.3s;
+}
+meter::-webkit-meter-bar {
+  background: #e0e0e0;
+}
+meter::-webkit-meter-optimum-value {
+  background-image: linear-gradient(90deg, #e74c3c, #f1c40f, #2ecc71);
+  transition: width 0.3s;
+}
+meter::-moz-meter-bar {
+  background-image: linear-gradient(90deg, #e74c3c, #f1c40f, #2ecc71);
+  transition: width 0.3s;
+}
+
+/* Text outputs */
+p, ul, button {
+  margin-top: 0.5rem;
+}
+#strengthText {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+#entropyText,
+#dictText,
+#breachText {
+  font-size: 0.9rem;
+}
+#dictText {
+  color: #e67e22;
+}
+#breachText {
+  color: #c0392b;
+}
+body.dark #dictText {
+  color: #f39c12;
+}
+body.dark #breachText {
+  color: #e74c3c;
+}
+
+/* Breakdown list */
+#breakdownList {
+  list-style: none;
+  text-align: left;
+  margin: 1rem 0 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+#breakdownList li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+}
+#breakdownList li:last-child {
+  border-bottom: none;
+}
+body.dark #breakdownList li {
+  border-bottom-color: #3a3a3a;
+}
+/* Dynamic pass/fail icons */
+#breakdownList li.fail {
+  color: #e74c3c;
+}
+#breakdownList li.pass {
+  color: #27ae60;
+}
+#breakdownList li::before {
+  content: '✖';
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  margin-right: 0.5em;
+  font-weight: bold;
+  transition: content 0.2s;
+}
+#breakdownList li.pass::before {
+  content: '✔';
+}
+
+/* Show Hash button */
+#showHashBtn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+#showHashBtn:hover {
+  background: #357ab8;
+}
+#showHashBtn:active {
+  transform: scale(0.98);
+}
+
+/* Hash output */
+#hashOutput {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  word-break: break-all;
+  color: #555;
+}
+
+/* Breach text states */
+#breachText.safe {
+  color: #27ae60;
+}
+#breachText.pwned {
+  color: #e74c3c;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .container { width: 90%; padding: 1.5rem; }
+}
