@@ -2,7 +2,7 @@
 
 // ———————————————————————————————————————————————
 // 1) CONFIG
-const API_URL   = 'http://127.0.0.1:5000/api/breach-check';
+const API_URL   = 'https://password-strength-checker-mvlg.onrender.com';
 const DICT_FILE = 'common_passwords.txt';
 
 // 2) STATE
