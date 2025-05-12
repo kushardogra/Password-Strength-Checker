@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Password Strength Checker</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Password Strength Checker</h1>
+
+    <!-- Dark mode toggle -->
+    <label class="dark-toggle">
+        <input type="checkbox" id="darkModeToggle" />
+        <span class="toggle-slider"></span>
+        Dark Mode
+      </label>
+
+    <!-- Password UI -->
+    <input  type="password" id="passwordInput" placeholder="Enter password" />
+    <meter  max="4"        id="strengthMeter"></meter>
+    <p      id="strengthText"></p>
+    <p      id="entropyText"></p>
+    <p      id="dictText"></p>
+
+    <!-- Strength breakdown -->
+    <ul id="breakdownList"></ul>
+
+    <!-- Hash visualizer -->
+    <button id="showHashBtn">Show SHA-256 Hash</button>
+    <p id="hashOutput"></p>
+
+    <!-- Breach check -->
+    <p id="breachText"></p>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
